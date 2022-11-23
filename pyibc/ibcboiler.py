@@ -26,7 +26,7 @@ class boiler:
             "object_request": bc2_objects[objectid],
             "boiler_no": self.boiler_no
         }
-        self.conn.request("GET", "/cgi-bin/bc2-cgi?json=" + json.dumps(query))
+        self.conn.request("GET", "/cgi-bin/bc2-cgi?json=" + json.dumps(query), headers = {"cookie" : "MetricMode=0; TECH_AUTHORIZED=103"})
         response = self.conn.getresponse()
         print(response.reason)
         print(response.status)
